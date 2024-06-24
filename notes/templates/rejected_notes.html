@@ -1,0 +1,132 @@
+{% extends 'admin_navigation.html' %}
+
+{% load static %} 
+
+{% block admin %}
+
+<style>
+    #card{
+        width: fit-content;
+        margin-left: -15px;
+        
+    }   
+
+    #all{
+        margin-top: 40px;
+        margin-right: 135px;
+        }
+    h1{
+        margin-top: 10px;
+        border-radius: 50px;
+    }
+    
+    
+    #trh{
+       background-color: rgba(255, 7, 7, 0.734); 
+       border: groove 2px rgba(1, 2, 10, 0.663);      
+    }
+    th{
+        font-family:Baskerville Old Face;
+        font-size: 18px;
+        color: rgb(6, 0, 0); 
+                
+    }
+    
+    td{
+        text-transform: capitalize;
+        font-family: Century Schoolbook;
+        text-align: center;
+        
+    }
+    
+    
+    #myTable{
+        border: groove 2px black;    
+    
+        } 
+    
+    @media (max-width: 991px) {
+    
+        #all{
+            position: relative;
+            margin-top: 50px;        
+            width: fit-content;
+        }
+        h1{
+            border-radius: 50px;
+        }
+        #myTable{
+        border: groove 1px;    
+    
+        }   
+        
+    
+    
+    }
+    </style>
+
+<div class="container" id="all">    
+    <div class="card shadow" id="card">        
+        <h1 class="mb-2 text-dark font-weight-normal" style="text-align: center; font-family: Castellar; border-top: groove 2px rgba(255, 7, 7, 0.663); 
+        border-bottom: groove 2px rgba(255, 7, 7, 0.663);  color: #100101d6;">Reject Notes</h1>
+        <div class="card-body" id="card">
+            <table class="table table-bordered" id="myTable">
+                <thead >
+                    <tr class="text-center" id="trh">
+                        <th>Sr. No.</th>
+                        <th>Uploading By</th>
+                        <th>Uploading Date</th>
+                        <th>Branch</th>
+                        <th>Subject</th>                        
+                        <th>File Type</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Download </th>
+                        <th>Assign Status</th>                        
+                        <th>Delete</th>
+                    </tr>
+
+                    <tr>
+
+                        {% for i in r_notes %}
+
+                            <tr>
+
+                                <td>{{forloop.counter}}</td>
+                                <td>{{i.user.username}}</td>
+                                <td>{{i.uploadingdate}}</td>
+                                <td>{{i.branch}}</td>
+                                <td>{{i.subject}}</td>                                
+                                <td>{{i.filetype}}</td>
+                                <td>{{i.description}}</td>
+                                <td>{{i.status}}</td>
+                                <td>
+                                    <a href="{{i.notesfile.url}}" class="btn btn-primary" download>
+                                    <i class="mdi mdi-download"> </i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{% url 'assign_status' i.id  %}" class="btn btn-info">
+                                        <i class="mdi mdi-check-circle px-2"> </i> / <i class="mdi mdi-close-circle px-2"></i>                               
+                                    </a>                                    
+                                </td>
+                                <td>
+                                    <a href="{% url 'delete_notes' i.id  %}" class="btn btn-danger"  onclick="return confirm('Are You Sure?')">
+                                        <i class="mdi mdi-delete-forever"></i>                                
+                                    </a>                                    
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </tr>
+                    
+                </thead>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

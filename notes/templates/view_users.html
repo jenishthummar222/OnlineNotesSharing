@@ -1,0 +1,110 @@
+{% extends 'admin_navigation.html' %}
+
+{% load static %} 
+
+{% block admin %}
+
+<style>
+
+    #all{
+        margin-top: 40px;
+        }
+    h1{
+        margin-top: 10px;
+        border-radius: 50px;
+    }
+    
+    
+    #trh{
+       background-color: rgba(7, 247, 255, 0.484); 
+       border: groove 2px rgba(7, 247, 255, 0.663);      
+    }
+    th{
+        font-family:Baskerville Old Face;
+        font-size: 18px;
+        color: rgb(6, 10, 13);  
+        
+    }
+    
+    td{
+        text-transform: capitalize;
+        font-family: Century Schoolbook;
+        text-align: center;
+        
+    }
+    
+    
+    #myTable{
+        border: groove 2px ;    
+    
+        } 
+    
+    @media (max-width: 991px) {
+    
+        #all{
+            position: relative;
+            margin-top: 50px;
+            float: right;
+        }
+        h1{
+            border-radius: 50px;
+        }
+        #myTable{
+        border: groove 1px;    
+    
+        }   
+        
+    
+    
+    }
+    </style>
+
+<div class="container" id="all">    
+    <div class="card shadow">        
+        <h1 class="mb-2 text-dark font-weight-normal" style="text-align: center; font-family: Castellar; border-top: groove 2px rgba(7, 247, 255, 0.663); 
+        border-bottom: groove 2px rgba(7, 247, 255, 0.663);  color: #100101d6;">All Users</h1>
+        <div class="card-body" id="card">
+            <table class="table table-bordered" id="myTable">
+                <thead >
+                    <tr class="text-center" id="trh">
+                        <th>Sr. No.</th>
+                        <th>Full Name</th>
+                        <th>Email Id</th>
+                        <th>Contect No</th>                        
+                        <th>Branch</th>
+                        <th>Role</th>                        
+                        <th>Action</th>
+                    </tr>
+
+                    <tr>
+
+                        {% for i in users %}
+
+                            <tr>
+
+                                <td>{{forloop.counter}}</td>                                
+                                <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+                                <td>{{i.user.username}}</td>                                
+                                <td>{{i.contact}}</td>
+                                <td>{{i.branch}}</td>
+                                <td>{{i.role}}</td>                                
+                                <td>
+                                    <a href="{% url 'delete_users' i.user.id  %}" class="btn btn-danger" onclick="return confirm('Are You Sure?')">
+                                        <i class="mdi mdi-delete-forever"> Delete</i>                                
+                                    </a>                                    
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </tr>
+                    
+                </thead>
+
+            </table>
+        </div>
+    </div>
+</div>
+  
+{% endblock %}     

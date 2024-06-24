@@ -1,0 +1,139 @@
+{% extends 'user_navigation.html' %}
+
+{% load static %}
+
+{% block user %}
+  <style>            
+      /** my css **/
+      .card {
+      margin-top: 40px;
+      width: 600px;
+      padding: 20px; 
+      border: groove  rgba(147, 151, 222, 0.718) 3px;           
+      }
+      #all{
+      margin-top: 100px;
+      }
+      .img{
+      padding: 10px; 
+      height: 550px; 
+      width: 470px;
+      }
+      #one{
+      font-family: Bell Mt;
+      }
+
+      b{
+      font-family: Copperplate Gothic;
+      }
+
+      #abt{
+      background-color: rgba(47, 13, 216, 0.948);
+      font-family:Felix Titling;
+      }
+
+      #abt:hover{
+      background-color: #0e0c0cc8;
+      }
+                
+
+      @media (max-width: 991px) {
+      #all{
+        
+        position: relative;
+        margin-top: 10px;
+        float: right;
+      }
+      .img{
+        margin-top: 50px;
+        position: relative;
+        margin-left: 120px ;
+        float: left;
+        height: 125px; 
+        width: 125px;
+        border-radius: 5000px;
+      }
+      .card{ 
+        margin-top: 0px;             
+        position: relative;
+        border: groove 2px;
+        float: left;
+        margin-left: 10px;
+        max-width: 350px;
+        margin-bottom: 30px;              
+      }
+      #one{
+      
+        font-family: Bell Mt;
+      }          
+      
+      
+      }      
+      
+  </style> 
+  
+ 
+<div class="container" id="all" >          
+  <div class="row">
+    <div class="col-sm-5" >                         
+        <img class="img" src="{% static 'images/Profile1 (3).jpg' %}">            
+    </div>
+
+  <div class="col-sm-6">
+
+    <div class="card shadow">
+      <h1 style="text-align: center; font-family: Castellar;border-top: groove 2px rgba(43, 1, 254, 0.663); border-bottom: groove 2px rgba(43, 1, 254, 0.663);  border-radius: 50px; color: #100101d6;">My Profile</h1>
+      <div class="card-body">         
+        <div class="row">                
+            <div class="col-md-6">
+              <b>Full Name &ensp;&ensp;&ensp;&ensp;: </b>
+            </div>
+            <div class="col-md-6" id="one" style="text-transform: capitalize ; ">
+              {{data.user.first_name}} {{data.user.last_name}}
+            </div>
+        </div>
+          <hr>
+        <div class="row">                
+          <div class="col-md-6">
+            <b>Email &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; : </b>
+          </div>
+          <div class="col-md-6" id="one" style="text-transform: capitalize ;">
+            {{data.user.username}}
+          </div>
+        </div>
+          <hr>
+        <div class="row">                
+          <div class="col-md-6">
+            <b>Contect No &ensp;&ensp; : </b>
+          </div>
+          <div class="col-md-6" id="one" style="text-transform: capitalize ;">
+            {{data.contact}}
+          </div>
+        </div>
+          <hr>         
+        <div class="row">                
+          <div class="col-md-6">
+            <b>Branch &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: </b>
+          </div>
+          <div class="col-md-6" id="one" style="text-transform: capitalize ;">
+            {{data.branch}}
+          </div>
+        </div>
+          <hr>             
+          <div class="row">                
+            <div class="col-md-6">
+              <b>Role &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; : </b>
+            </div>
+            <div class="col-md-6" id="one" style="text-transform: capitalize ;">
+              {{data.role}}
+            </div>
+          </div>
+            <hr>  
+            <a  id="abt" href="{% url 'edit_profile' %}" class="btn btn-primary mt-4">Edit Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}  

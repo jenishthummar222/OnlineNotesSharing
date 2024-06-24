@@ -1,0 +1,121 @@
+{% extends 'user_navigation.html' %}
+
+{% load static %}
+
+{% block user %}
+
+<style>
+
+#all{
+    margin-top: 75px;
+    }
+h1{
+    margin-top: 10px;
+}
+
+
+#trh{
+   background-color: rgba(4, 215, 252, 0.663); 
+   border: groove 2px rgba(4, 215, 252, 0.663);      
+}
+th{
+    font-family:Baskerville Old Face;
+    font-size: 18px;
+    color: rgb(6, 10, 13);  
+    border: groove 2px;
+}
+
+td{
+    text-transform: capitalize;
+    font-family: Century Schoolbook;
+    text-align: center;
+    
+}
+
+
+#myTable{
+    border: groove 2px ;    
+
+    } 
+
+@media (max-width: 991px) {
+
+    #all{
+        position: relative;
+        margin-top: 50px;
+        
+        width: fit-content;
+    }
+    h1{
+        border-radius: 50px;
+    }
+    #myTable{
+    border: groove 1px;    
+
+    }     
+    
+
+
+}
+</style>
+
+<div class="container" id="all">    
+    <div class="card shadow"> 
+               
+        <h1 style="text-align: center; font-family: Castellar; border-top: groove 2px rgba(4, 215, 252, 0.663); 
+        border-bottom: groove 2px rgba(4, 215, 252, 0.663);  color: #100101d6;">All Notes (<b> {{asum}} </b>)</h1>
+        <div class="card-body" id="card">
+            <table class="table table-bordered" id="myTable">
+                <thead >
+                    <tr class="text-center" id="trh">
+                        <th>Sr. No.</th>
+                        <th>Uploaded By</th>
+                        <th>Uploading Date</th>
+                        <th>Branch</th>
+                        <th>Subject</th>                        
+                        <th>File Type</th>
+                        <th>Description</th>                        
+                        <th>Download Notes</th>
+                        <th>View
+                             Notes</th>
+                        
+                    </tr>
+
+                    <tr>
+
+                        {% for i in all_notes %}
+
+                            <tr>
+
+                                <td>{{forloop.counter}}</td>
+                                <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+                                <td>{{i.uploadingdate}}</td>
+                                <td>{{i.branch}}</td>
+                                <td>{{i.subject}}</td>                                
+                                <td>{{i.filetype}}</td>
+                                <td>{{i.description}}</td>                                
+                                <td>
+                                    <a href="{{i.notesfile.url}}" class="btn btn-primary" download>
+                                    <i class="ri-file-download-fill"> Download</i>
+                                    </a>
+                                </td> 
+                                <td>
+                                    <a href="{{i.notesfile.url}}" class="btn btn-primary">
+                                    <i class="ri-book-mark-fill"> View </i>
+                                    </a>
+                                </td>                              
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </tr>
+                    
+                </thead>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}  

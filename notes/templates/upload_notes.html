@@ -1,0 +1,206 @@
+{% extends 'user_navigation.html' %}
+
+{% load static %}
+
+{% block user %}
+
+<style>            
+    /** my css **/
+    .card {
+    margin-top: 40px;
+    width: 600px;
+    height: fit-content;
+    padding: 20px; 
+    border: groove  rgba(153, 254, 1, 0.663) 3px;           
+    }
+    #all{
+    margin-top: 75px;
+    }
+    .img{
+    padding: 10px; 
+    height: 550px; 
+    width: 470px;
+    }
+    #one{
+    font-family: Bell Mt;
+    }
+
+    b{
+    font-family: Copperplate Gothic;
+    }
+
+    #abt{
+    background-color: rgba(153, 254, 1, 0.548);
+    font-family:Felix Titling;
+    color: rgb(2, 2, 16);
+    }
+
+    #abt:hover{
+    background-color: #0e0c0cc8;
+    }
+                
+
+    @media (max-width: 991px) {
+    #all{
+        
+        position: relative;
+        margin-top: 10px;
+        float: right;
+    }
+    .img{
+        margin-top: 50px;
+        position: relative;
+        margin-left: 120px ;
+        float: left;
+        height: 125px; 
+        width: 125px;
+        border-radius: 5000px;
+    }
+    .card{ 
+        margin-top: 0px;             
+        position: relative;
+        border: groove 2px;
+        float: left;
+        margin-left: 10px;
+        max-width: 350px;
+        margin-bottom: 30px;  
+        height:fit-content;           
+    }
+    #one{
+        margin-top: 10px;
+        font-family: Bell Mt;
+    }          
+    
+    
+    }      
+    
+</style> 
+
+
+<div class="container" id="all" >          
+<div class="row">
+<div class="col-sm-5" >                         
+    <img class="img" src="{% static 'images/upload (8).jpg' %}">            
+</div>
+
+<div class="col-sm-6">
+
+<div class="card shadow">
+  <h1 style="text-align: center; font-family: Castellar;border-top: groove 2px rgba(153, 254, 1, 0.663); 
+  border-bottom: groove 2px rgba(153, 254, 1, 0.663);  border-radius: 50px; color: #100101d6;">Upload Notes</h1>
+  <div class="card-body">  
+    <form method="post" enctype="multipart/form-data"> 
+        {% csrf_token %}      
+       
+        <div class="row">                
+            <div class="col-md-4">
+            <b>Subject &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: </b>
+            </div>
+            <div class="col-md-8" id="one" style="text-transform: capitalize ; ">
+                <input type="text" name="Subject" class="form-control" placeholder="Enter Subject"
+                  required>
+            </div>
+        </div><br>
+
+        <div class="row">                
+            <div class="col-md-4">
+            <b>Branch &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: </b>
+            </div>
+            <div class="col-md-8" id="one" style="text-transform: capitalize ; ">
+                <select id="one" class="form-control" name="branch" required>
+                    <option disabled selected value="">--- Select Branch ---</option>    
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Electric">Electric</option>
+                    <option value="IT">IT</option>
+                    <option value="Cinema">Cinema</option>
+                </select>
+            </div>
+        </div><br>
+        
+        <div class="row">                
+        <div class="col-md-4">
+            <b>Notes Files &ensp;&ensp; : </b>
+        </div>
+        <div class="col-md-8" id="one" style="text-transform: capitalize ;">
+            <input type="file" name="n_file" class="form-control" required>
+        </div>
+        </div><br>
+        
+        <div class="row">                
+        <div class="col-md-4">
+            <b>File Type &ensp;&ensp;&ensp;&ensp;&ensp; : </b>
+        </div>
+        <div class="col-md-8" id="one" style="text-transform: capitalize ;">            
+            <select id="one" class="form-control" name="f_type" required>
+                <option disabled selected value="">--- Select File Type ---</option>    
+                <option value="PDF">PDF</option>
+                <option value="PPT">PPT</option>
+                <option value="DOC/COCX">DOC/COCX</option>
+                <option value="TXT">TXT</option>
+                <option value="ZIP/RAR">ZIP/RAR</option>
+                <option value="Images">Images</option>
+                <option value="Video">Video</option>
+            </select>
+        </div>
+        </div><br>
+        
+        <div class="row">                
+            <div class="col-md-4">
+                <b>Description &ensp;&ensp; : </b>
+            </div>
+            <div class="col-md-8" id="one" style="text-transform: capitalize ;">
+                <textarea type="text" name="description" class="form-control"  required> </textarea>
+            </div>
+            </div>
+       
+        <center>
+            <input type="submit" id="abt" class="btn btn-primary mt-4" value="Upload">
+        </center>
+        
+    </form>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+{% if error == "no" %}
+  
+<div class="popup popup--icon -success js_success-popup popup--visible">
+    <div class="popup__background"></div>
+    <div class="popup__content">
+      <h3 class="popup__content__title">
+        Success 
+      </h1>
+      <p>Notes Upload Successfully</p>
+      <p>
+        <a href="{% url 'view_mynotes' %}"><button class="button button--success" data-for="js_error-popup">OK</button></a>
+      </p>
+    </div>
+  </div>  
+
+{% endif %}
+
+{% if error == "yes" %}
+
+<div class="popup popup--icon -error js_error-popup popup--visible" >
+    <div class="popup__background"></div>
+    <div class="popup__content">
+      <h2 class="popup__content__title">
+        Error 
+      </h2>
+      <p><h5>Somthing want Wrong..</h5></p>
+      <p style="margin-top: 10px;">
+        <a href="{% url 'upload_notes' %}"><button class="button button--error" data-for="js_error-popup">Close</button></a>
+      </p>
+    </div>
+</div>
+
+{% endif %}
+
+
+{% endblock %}  

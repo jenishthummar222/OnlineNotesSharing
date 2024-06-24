@@ -1,0 +1,88 @@
+{% extends 'admin_navigation.html' %}
+
+{% load static %} 
+
+{% block admin %}    
+
+        <!-- partial -->
+        <div class="main-panel"> 
+          <div class="content-wrapper">
+            <div class="row" id="proBanner">
+              <div class="col-12" hidden>
+                <span class="d-flex align-items-center purchase-popup" hidden>                  
+                  <a hidden href="https://github.com/BootstrapDash/ConnectPlusAdmin-Free-Bootstrap-Admin-Template" target="_blank" class="btn ml-auto download-button"></a>
+                  <a hidden href="http://www.bootstrapdash.com/demo/connect-plus/jquery/template/" target="_blank" class="btn purchase-button"></a>
+                  <i hidden class="mdi mdi-close" id="bannerClose"></i>
+                </span>
+              </div>
+            </div>
+              <div class="d-xl-flex justify-content-between align-items-start">
+                <h2 class="text-dark font-weight-bold mb-2"> Overview dashboard </h2>              
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="d-sm-flex justify-content-between align-items-center transaparent-tab-border {">
+                    
+                  </div>
+                  <div class="tab-content tab-transparent-content ">
+                    <div class="tab-pane fade show active" id="business-1" role="tabpanel" aria-labelledby="business-tab">
+                      <div class="row">
+                        
+                        <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card " style="height: 325px;">
+                          <div class="card">
+                            <div class="card-body text-center ">
+                              <a href="{% url 'panding_notes' %}"><h5 class="mb-2 text-dark font-weight-normal" style="font-family: Berlin Sans FB;font-size: 20;">Panding Notes</h5>
+                              <h2 class="mb-4 text-dark font-weight-bold" style="padding-top: 10px;" >{{p}}</h2>
+                              <div class="dashboard-progress dashboard-progress-1 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-eye icon-md absolute-center text-dark" style="margin-top: 35px;" ></i></div>
+                              <a href="{% url 'panding_notes' %}">
+                                <h3 class="mb-0 font-weight-bold mt-2 text-dark" style="padding-top: 20px;" >{{prp}}%</h3>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-3  col-lg-6 col-sm-6 grid-margin stretch-card" style="height: 325px;">
+                          <div class="card">
+                            <div class="card-body text-center">
+                              <a href="{% url 'accepted_notes' %}"><h5 class="mb-2 text-dark font-weight-normal" style="font-family: Berlin Sans FB;font-size: 20;">Accepted Notes</h5>
+                              <h2 class="mb-4 text-dark font-weight-bold" style="padding-top: 10px;">{{a}}</h2>
+                              <div class="dashboard-progress dashboard-progress-2 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-check-circle icon-md absolute-center text-dark" style="margin-top: 35px;"></i></div>                              
+                              <a href=""><h3 class="font-weight-bold text-dark" style=" padding-top: 20px;">{{pra}}%</h3></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-3  col-lg-6 col-sm-6 grid-margin stretch-card"style="height: 325px;">
+                          <div class="card">
+                            <div class="card-body text-center">
+                              <a href="{% url 'rejected_notes' %}"><h5 class="mb-2 text-dark font-weight-normal" style="font-family: Berlin Sans FB;font-size: 20;">Rejected Notes</h5>
+                              <h2 class="mb-4 text-dark font-weight-bold" style="padding-top: 10px;">{{r}}</h2>
+                              <div class="dashboard-progress dashboard-progress-4 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-close-circle icon-md absolute-center text-dark" style="margin-top: 35px;"></i></div>
+                              <a href="">
+                                <h3 class="font-weight-bold text-dark" style=" padding-top: 20px;">{{prr}}%</h3>     
+                              </a>                        
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-3  col-lg-6 col-sm-6 grid-margin stretch-card" style="height: 325px;">
+                          <div class="card">
+                            <div class="card-body text-center">
+                              <a href="{% url 'all_notes' %}"><h5 class="mb-2 text-dark font-weight-normal" style="font-family: Berlin Sans FB;font-size: 20;">All Notes</h5>
+                              <h2 class="mb-4 text-dark font-weight-bold" style="padding-top: 10px;">{{all}}</h2>
+                              <div class="dashboard-progress dashboard-progress-3 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-clipboard-text icon-md absolute-center text-dark" style="margin-top: 35px;"></i></div>
+                              <a href="">
+                                <h3 class="font-weight-bold text-dark" style=" padding-top: 20px;">{{prall}}%</h3>           
+                              </a>                  
+                            </div>
+                          </div>
+                        </div>
+                      </div>                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+          <!-- content-wrapper ends -->
+
+          
+{% endblock %}     

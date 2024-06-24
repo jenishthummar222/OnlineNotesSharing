@@ -1,0 +1,394 @@
+{% extends 'navigation.html' %}
+
+{% load static %}
+
+{% block main %} 
+    
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="d-flex align-items-center justify-content-center">
+            <div class="container" data-aos="fade-up">
+        
+                <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+                    <div class="col-xl-6 col-lg-8">
+                        <h1>Online Notes Shering<span>..</span></h1>                        
+                    </div>
+                    </div>
+                            
+                    <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+                        <h5 style="color: rgb(188, 209, 228); text-shadow: 5px; "> Just 4 Step to Follow </h5>
+                    <div class="col-xl-2 col-md-4">
+                        <div class="icon-box">
+                        <i class="ri-user-3-fill"></i>
+                        <h3><a href="{% url 'register' %}">Create a Account</a></h3>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4">
+                        <div class="icon-box">
+                        <i class="ri-login-box-fill"></i>
+                        <h3><a href="{% url 'login' %}">Login</a></h3>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4">
+                        <div class="icon-box">
+                        <i class="ri-file-upload-fill"></i>
+                        <h3><a href="{% url 'login' %}">Upload Nots</a></h3>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4">
+                        <div class="icon-box">
+                        <i class="ri-file-download-fill"></i>
+                        <h3><a href="{% url 'login' %}">Download Nots</a></h3>
+                        </div>
+                    </div>
+            
+                </div>
+        
+            </div>
+        </section><!-- End Hero -->
+    
+        <main id="main">
+    
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+    
+            <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">                    
+                    <video autoplay loop muted poster="#"> 
+                        <source src="{% static 'video/one(4).mp4' %}" type="video/mp4"  class="img-fluid" alt="">                        
+                    </video>                    
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+                <h3>All About Notes Sharing.</h3>
+                <p class="fst-italic">
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Online Note Sharing” is the project used for sharing notes using the website.Notes that the user wants for a particular subject can be found in the website.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <ul>                    
+                    <li><i class="ri-check-double-line"></i> Firstly, the user need to sign up and then, they can log in to the system.</li>
+                    <li><i class="ri-check-double-line"></i> than user show all uploading file and download any file</li>
+                    <li><i class="ri-check-double-line"></i> user upload a over files in this web site</li>
+                    <li><i class="ri-check-double-line"></i>  This project is written in PYTHON,DJANGO,HTML,CSS,BOOTSTRAP and SQLlite</li>
+                </ul>
+                <p>
+                    Online Notes Sharing is a open source you can Download and edit as per you need.this site is very simply usebel. you  simpaly click on download button and file Download in you pc/laptop/mobile. 
+                </p>
+                </div>
+            </div>
+    
+            </div>
+        </section><!-- End About Section -->
+    
+        <!-- ======= Clients Section ======= -->
+        <section id="clients" class="clients">
+            <div class="container" data-aos="zoom-in">
+    
+                <div class="clients-slider swiper">
+                    <div class="swiper-wrapper align-items-center">
+                        <div class="swiper-slide"><img src="{% static 'img/clients/b1.png' %}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'img/clients/b2.png' %}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'img/clients/b3.png' %}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'img/clients/b4.png' %}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'img/clients/b5.png' %}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'img/clients/b6.png' %}" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'img/clients/b7.png' %}" class="img-fluid" alt=""></div>               
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+    
+            </div>
+        </section><!-- End Clients Section -->
+    
+           
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+            <div class="container" data-aos="fade-up">
+    
+            <div class="section-title">
+                <h2>Services</h2>
+                <p>Check our Services</p>
+            </div>
+    
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-user-3-fill"></i></div>
+                    <h4><a href="">Crate Account</a></h4>
+                    <p> simpaly Click in Create Account Link and use all aattribute this web.</p>
+                </div>
+                </div>
+    
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-file-upload-fill"></i></div>
+                    <h4><a href="">Upload files</a></h4>
+                    <p> From a network user's point-of-view to upload a file is to send it to another computer that is set up to receive it. </p>
+                </div>
+                </div>
+    
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-file-download-fill"></i></div>
+                    <h4><a href="">Download Files</a></h4>
+                    <p>your computer is receiving data from the Internet. and use any more place</p>
+                </div>
+                </div>
+    
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-slideshow-4-fill"></i></div>
+                    <h4><a href="">Show All Files</a></h4>
+                    <p> you can download the file placed by the user ,you show a upload files onlye</p>
+                </div>
+                </div>
+    
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-service-fill"></i></div>
+                    <h4><a href="">Fast Services</a></h4>
+                    <p> fast Account register and login.save your time.fast Instalation files.Service 24 x 7.  </p>
+                </div>
+                </div>
+    
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div class="icon"><i class="ri-admin-fill"></i></div>
+                    <h4><a href="">Admin</a></h4>
+                    <p> main rool is a admin.admin is control of all web. like accept file uploading request,delete user,update user,add user etc. </p>
+                </div>
+                </div>
+    
+            </div>
+    
+            </div>
+        </section><!-- End Services Section -->
+    
+        <!-- ======= Cta Section ======= -->
+        <section id="cta" class="cta">
+            <div class="container" data-aos="zoom-in">
+    
+            <div class="text-center">
+                <h3>Call To Action</h3>
+                <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <a class="cta-btn" href="#">Call To Action</a>
+            </div>
+    
+            </div>
+        </section><!-- End Cta Section -->
+    
+         
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts">
+            <div class="container" data-aos="fade-up">
+    
+            <div class="row ">
+                <div class="col-md-6 mt-5">
+                    <video autoplay muted poster="#"> 
+                        <source src="{% static 'video/graph3.mp4' %}" type="video/mp4"  class="img-fluid" alt="">                        
+                    </video>
+                </div>
+                
+                <div class="col-md-6 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch" data-aos="fade-left" data-aos-delay="100">
+                    <div class="content d-flex flex-column justify-content-center">
+                        <h3>Voluptatem dignissimos provident quasi</h3>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                        </p>
+                        <div class="row">
+                        <div class="col-md-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                            <i class="bi bi-emoji-smile"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="10" class="purecounter"></span>
+                            <p><strong>Happy Clients</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+                            </div>
+                        </div>
+        
+                        <div class="col-md-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                            <i class="bi bi-journal-richtext"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="10" class="purecounter"></span>
+                            <p><strong>Projects</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
+                            </div>
+                        </div>
+        
+                        <div class="col-md-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                            <i class="bi bi-clock"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="10" class="purecounter"></span>
+                            <p><strong>Years of experience</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
+                            </div>
+                        </div>
+        
+                        <div class="col-md-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-award"></i>
+                                <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="10" class="purecounter">
+
+                                </span>
+                                <p><strong>Awards</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- End .content-->
+                </div>
+            </div>
+    
+            </div>
+        </section><!-- End Counts Section -->
+    
+        <!-- ======= Testimonials Section ======= -->
+        <section id="team" class="testimonials">
+            <div class="container" data-aos="zoom-in">
+    
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+    
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                    <img src="{% static 'img/team/jenish.jpg' %}" class="testimonial-img" alt="">
+                    <h3>J.K Thummar</h3>
+                    <h4>Student</h4>
+                    <p>
+                        <h6> info </h6>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            I am a Student of Dr.shubhash technical campus.I stady BCA.This project and Design made by me.I made a interesting 
+                            project for file shering , that's provide a Shering facility for a any file or documents on online web.Like a pdf,
+                            jpg,doc,jpeg,xml,text etc.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    </p>
+                    </div>
+                </div><!-- End testimonial item -->
+    
+                
+                 </div>
+                <div class="swiper-pagination"></div>
+            </div>
+    
+            </div>
+        </section><!-- End Testimonials Section -->
+    
+    
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
+    
+            <div class="section-title">
+                <h2>Contact</h2>
+                <p>Contact Us</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+            
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14843.23974013732!2d70.69461812847658!3d21.55428592145527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395809519b10551b%3A0xa4998f4a4eec09a!2sBhesan%20Primary%20School!5e0!3m2!1sen!2sin!4v1673082570073!5m2!1sen!2sin" width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            
+                </div>           
+    
+                <div class="col-sm-6 mt-5">
+                <div class="info mb-5">
+
+                    <div class="address">
+                    <i class="bi bi-geo-alt"></i>
+                    <h4>Location:</h4>
+                    <p>jinplot, Bhesan 
+                        pincode 362020, IND
+                    </p>
+                    </div>
+    
+                    <div class="email">
+                    <i class="bi bi-envelope"></i>
+                    <h4>Email:</h4>
+                    <p>jenishthummar222@gmail.com</p>
+                    </div>
+    
+                    <div class="phone">
+                    <i class="bi bi-phone"></i>
+                    <h4>Call:</h4>
+                    <p>+91 72029 20648</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class="bx bxl-instagram"></i>
+                        <h4>instagram:</h4>
+                        <p>j.k.thummar_222</p>
+                    </div>
+    
+                </div>
+    
+                </div>
+    
+                
+    
+            </div>
+    
+            </div>
+        </section><!-- End Contact Section -->
+    
+        </main><!-- End #main -->
+    
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+            <div class="row">
+    
+                <div class="col-lg-3 col-md-6">
+                <div class="footer-info">
+                    <h3>ONS<span>.</span></h3>
+                    <p>
+                    jinplot, Bhesan <br>
+                    pincode 362020, IND<br><br>
+                    <strong>Phone:</strong> +91 7202920648<br>
+                    <strong>Email:</strong> jenishthummar222@gmail.com<br>
+                    </p>
+                    <div class="social-links mt-3">
+                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+                </div>
+    
+                <div class="col-lg-2 col-md-6 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                </ul>
+                </div>
+    
+                <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                </ul>
+                </div>
+    
+                <div class="col-lg-4 col-md-6 footer-newsletter">
+                <h4>Our Newsletter</h4>
+                <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                <form action="" method="post">
+                    <input type="email" name="email"><input type="submit" value="Subscribe">
+                </form>
+    
+                </div>          
+    
+            </div>
+                Made by : <a href="#">J.K Thummar</a>  
+            </div>
+            
+        </div>    
+        
+        </footer><!-- End Footer -->   
+       
+{% endblock %}

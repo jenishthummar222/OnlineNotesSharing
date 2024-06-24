@@ -1,0 +1,113 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block login %} 
+
+<script>
+    function checkpassword()
+    {
+        if(document.signup.password.value!=document.signup.c_password.value)
+        {
+            alert('Password and Confrim password dose not metch');
+            document.signup.c_password.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+
+{% if error == "no" %}
+  
+<div class="popup popup--icon -success js_success-popup popup--visible">
+    <div class="popup__background"></div>
+    <div class="popup__content">
+      <h3 class="popup__content__title">
+        Success 
+      </h1>
+      <p>Singup Successfully</p>
+      <p>
+        <a href="{% url 'login' %}"><button class="button button--success" data-for="js_error-popup">OK</button></a>
+      </p>
+    </div>
+  </div>  
+
+{% endif %}
+
+{% if error == "yes" %}
+
+<div class="popup popup--icon -error js_error-popup popup--visible" >
+    <div class="popup__background"></div>
+    <div class="popup__content">
+      <h2 class="popup__content__title">
+        Error 
+      </h2>
+      <p><h5> Email already Exists!</h5></p>
+      <p style="margin-top: 10px;">
+        <a href="{% url 'register' %}"><button class="button button--error" data-for="js_error-popup">Close</button></a>
+      </p>
+    </div>
+</div>
+
+{% endif %}
+
+
+<section class="signup" id="signup">
+    
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="heading"  style="color: black; font-family: Algerian Regular;">User Signup Form</h1>
+            <form method="post"  name="signup" style="height: 550px;" onsubmit="return checkpassword()">
+                {% csrf_token %}
+
+                    <input type="text" placeholder="Enter First Name" class="box" name="firstname" 
+                    style="font-family: Javanese Text Regular; border-radius:50px; background-color : rgba(0, 0, 0, 0.592);" required>
+
+
+                    <input type="text" placeholder="Enter Last Name" class="box" name="lastname" 
+                    style="font-family: Javanese Text Regular; border-radius:50px ;background-color : rgba(0, 0, 0, 0.592);" required>
+
+
+                    <input type="number" placeholder="Enter Contact Number" class="box"name="contact" 
+                    style="font-family: Javanese Text Regular; border-radius:50px ;background-color : rgba(0, 0, 0, 0.592);" required>
+
+
+                    <input type="email" placeholder="Enter Email Address" class="box" name="emailid" 
+                    style="font-family: Javanese Text Regular; border-radius:50px ;background-color : rgba(0, 0, 0, 0.592);" required>
+
+
+                    <input type="password" placeholder="Password" class="box" name="password" 
+                    style="font-family: Javanese Text Regular; border-radius:50px ;background-color : rgba(0, 0, 0, 0.592);" required>
+
+
+                    <input type="password" placeholder="confirm Password" class="box" name="c_password" 
+                    style="font-family: Javanese Text Regular; border-radius:50px ;background-color : rgba(0, 0, 0, 0.592);" required>
+
+
+                        <select name="branch" class="box" style="background-color : rgba(0, 0, 0, 0.592); font-family: Javanese Text Regular; border-radius:50px ;">
+                            <option disabled selected value="">--- Select Branch ---</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Mechanical">Mechanical</option>
+                            <option value="Civil">Civil</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Electric">Electric</option>
+                            <option value="IT">IT</option>
+                        </select>
+
+                    <select name="role" class="box" style="background-color : rgba(0, 0, 0, 0.592); font-family: Javanese Text Regular; border-radius:50px ;">
+                        <option disabled selected value="">--- Role ---</option>
+                        <option value="Student">Student</option>
+                        <option value="Teacher">Teacher</option>
+                    </select>
+                <hr>
+                
+                    <input type="submit" class="btn btn-primary mt-2" value="SUBMIT" style=" font-family:Stencil Regular; ">
+                
+            </form>
+        </div>
+        
+    </div>
+    
+</section>
+
+{% endblock %}

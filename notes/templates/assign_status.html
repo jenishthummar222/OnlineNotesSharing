@@ -1,0 +1,151 @@
+{% extends 'admin_navigation.html' %}
+
+{% load static %} 
+
+{% block admin %}
+
+<style>            
+    /** my css **/
+    .card {
+    margin-top: 40px;
+    width: 600px;
+    height: fit-content;
+    padding: 20px; 
+    border: groove  #ef0635 3px;           
+    }
+    #all{
+    margin-top: 40px;
+    }
+    .img{
+           
+    margin-top: 43px;
+    padding: 20px; 
+    height: 450px; 
+    width: 470px;
+    }
+    #one{
+    font-family: Bell Mt;
+    }
+
+    b{
+    font-family: Copperplate Gothic;
+    }
+
+    #abt{
+    background-color: #f50737c2;
+    font-family:Felix Titling;
+    color: rgb(2, 2, 16);
+    
+    }
+
+    #abt:hover{
+    background-color: #0e0c0cc8;
+    }
+                
+
+    @media (max-width: 991px) {
+    #all{
+        
+        position: relative;
+        margin-top: 10px;
+        float: right;
+    }
+    .img{
+        margin-top: 50px;
+        position: relative;
+        margin-left: 120px ;
+        float: left;
+        height: 125px; 
+        width: 125px;
+        border-radius: 5000px;
+    }
+    .card{ 
+        margin-top: 0px;             
+        position: relative;
+        border: groove 2px;
+        float: left;
+        margin-left: 10px;
+        max-width: 350px;
+        margin-bottom: 30px;  
+        height:fit-content;           
+    }
+    #one{
+        margin-top: 10px;
+        font-family: Bell Mt;
+    }          
+    
+    
+    }      
+    
+</style> 
+
+<div class="container" id="all" >          
+    <div class="row">
+        <div class="col-sm-5" >                         
+            <img class="img" src="{% static 'images/upload (9).jpg' %}">            
+        </div>
+    
+        <div class="col-sm-6">
+    
+        <div class="card shadow">
+            <h1 class="mb-2 text-dark font-weight-normal" style="text-align: center; font-family: Castellar; border-top: groove 2px #ef0635; 
+            border-bottom: groove 2px #ef0635; border-radius: 50px; color: #100101d6;">Change Status</h1>
+        <div class="card-body">  
+            <form method="post">
+                {% csrf_token %}
+                <h5 class="mb-2 text-dark font-weight-normal" style="font-family: Berlin Sans FB;font-size: 20;" >Notes Id :</h5>
+                <input type="text" name="notesid" class="form-control" readonly value="{{notes.id}}"><br>
+
+                <h5 class="mb-2 text-dark font-weight-normal" style="font-family: Berlin Sans FB;font-size: 20;">Status :</h5>
+                <select name="status" class="form-control">
+                    <option disabled selected value="Accept"> --- Select Option --- </option>
+                    <option value="Accept">Accept</option>
+                    <option value="Reject">Reject</option>
+                </select><br>
+                        
+                <center>
+                    <input type="submit" id="abt" class="btn btn-primary mt-4" value="Confirm">
+                </center>
+                
+            </form>
+        </div>
+        </div>
+    </div>
+</div>    
+
+
+{% if error == "no" %}
+  
+<div class="popup popup--icon -success js_success-popup popup--visible">
+    <div class="popup__background"></div>
+    <div class="popup__content">
+      <h3 class="popup__content__title">
+        Success 
+      </h1>
+      <p>Status Updated Successfully</p>
+      <p>
+        <a href="{% url 'all_notes' %}"><button class="button button--success" data-for="js_error-popup">OK</button></a>
+      </p>
+    </div>
+  </div>  
+
+{% endif %}
+
+{% if error == "yes" %}
+
+<div class="popup popup--icon -error js_error-popup popup--visible" >
+    <div class="popup__background"></div>
+    <div class="popup__content">
+      <h2 class="popup__content__title">
+        Error 
+      </h2>
+      <p><h5>Status Not Update</h5></p>
+      <p style="margin-top: 10px;">
+        <a href="{% url 'assign_status' %}"><button class="button button--error" data-for="js_error-popup">Close</button></a>
+      </p>
+    </div>
+</div>
+
+{% endif %}
+    
+{% endblock %}

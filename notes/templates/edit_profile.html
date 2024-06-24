@@ -1,0 +1,191 @@
+{% extends 'user_navigation.html' %}
+
+{% load static %}
+
+{% block user %}
+
+    <style>            
+        /** my css **/
+        .card {
+        margin-top: 0px;
+        width: 600px;
+        height: 575px;
+        padding: 20px; 
+        border: groove  rgba(222, 215, 147, 0.718) 3px;           
+        }
+        #all{
+        margin-top: 75px;
+        }
+        .img{
+        padding: 10px; 
+        height: 550px; 
+        width: 470px;
+        }
+        #one{
+        font-family: Bell Mt;
+        }
+
+        b{
+        font-family: Copperplate Gothic;
+        }
+
+        #abt{
+        background-color: rgb(223, 178, 16);
+        font-family:Felix Titling;
+        }
+
+        #abt:hover{
+        background-color: #0e0c0cc8;
+        }
+                    
+
+        @media (max-width: 991px) {
+        #all{
+            
+            position: relative;
+            margin-top: 10px;
+            float: right;
+        }
+        .img{
+            margin-top: 50px;
+            position: relative;
+            margin-left: 120px ;
+            float: left;
+            height: 125px; 
+            width: 125px;
+            border-radius: 5000px;
+        }
+        .card{ 
+            margin-top: 0px;             
+            position: relative;
+            border: groove 2px;
+            float: left;
+            margin-left: 10px;
+            max-width: 350px;
+            margin-bottom: 30px;  
+            height:fit-content;           
+        }
+        #one{
+            margin-top: 10px;
+            font-family: Bell Mt;
+        }          
+        
+        
+        }      
+        
+    </style> 
+  
+ 
+<div class="container" id="all" >          
+  <div class="row">
+    <div class="col-sm-5" >                         
+        <img class="img" src="{% static 'images/update (5).jpg' %}">            
+    </div>
+
+  <div class="col-sm-6">
+
+    <div class="card shadow">
+      <h1 style="text-align: center; font-family: Castellar;border-top: groove 2px rgba(254, 246, 1, 0.663); 
+      border-bottom: groove 2px rgba(254, 246, 1, 0.663);  border-radius: 50px; color: #100101d6;">Edit Profile</h1>
+      <div class="card-body">  
+        <form method="post"> 
+            {% csrf_token %}      
+            <div class="row">                
+                <div class="col-md-4">
+                <b>First Name &ensp;&ensp;&ensp;&ensp;: </b>
+                </div>
+                <div class="col-md-8" id="one" style="text-transform: capitalize ; ">
+                    <input type="text" name="f_name" class="form-control" placeholder="Enter First Name"
+                     value="{{data.user.first_name}}" required>
+                </div>
+            </div><br>
+
+            <div class="row">                
+                <div class="col-md-4">
+                <b>Last Name &ensp;&ensp;&ensp;&ensp;: </b>
+                </div>
+                <div class="col-md-8" id="one" style="text-transform: capitalize ; ">
+                    <input type="text" name="l_name" class="form-control" placeholder="Enter Last Name"
+                     value="{{data.user.last_name}}" required>
+                </div>
+            </div><br>
+            
+            <div class="row">                
+            <div class="col-md-4">
+                <b>Email &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; : </b>
+            </div>
+            <div class="col-md-8" id="one" style="text-transform: capitalize ;">
+                <input type="email" name="email" class="form-control" value="{{data.user.username}}" placeholder="Enter Email" readonly required>
+            </div>
+            </div><br>
+            
+            <div class="row">                
+            <div class="col-md-4">
+                <b>Contect No &ensp;&ensp; : </b>
+            </div>
+            <div class="col-md-8" id="one" style="text-transform: capitalize ;">
+                <input type="number" name="c_no" class="form-control" value="{{data.contact}}" placeholder="Enter Contect Number" required>
+            </div>
+            </div><br>
+
+            <div class="row">                
+                <div class="col-md-4">
+                    <b>Branch &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; : </b>
+                </div>
+                <div class="col-md-8" id="one" style="text-transform: capitalize ;">
+                    <label>{{data.branch}}</label>
+                    <select id="one" class="form-control" name="branch" >
+                        
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Mechanical">Mechanical</option>
+                        <option value="Civil">Civil</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Electric">Electric</option>
+                        <option value="IT">IT</option>
+                    </select>
+                </div>
+            </div><br>
+                    
+            <div class="row">                
+                <div class="col-md-4">
+                    <b>Role &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; : </b>
+                </div>
+                <div class="col-md-8" id="one" style="text-transform: capitalize ;">
+                    <label>{{data.role}}</label>
+                    <select id="one" class="form-control" name="role" >                       
+                        <option value="Student">Student</option>
+                        <option value="Teacher">Teacher</option>
+                    </select>
+                </div>
+            </div>                        
+           
+            <center>
+                <input type="submit" id="abt" class="btn btn-primary mt-4" value="update">
+            </center>
+            
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% if error == "True" %}
+  
+<div class="popup popup--icon -success js_success-popup popup--visible">
+    <div class="popup__background"></div>
+    <div class="popup__content">
+      <h3 class="popup__content__title">
+        Success 
+      </h1>
+      <p>Edit Profile Successfully</p>
+      <p>
+        <a href="{% url 'user_profile' %}"><button class="button button--success" data-for="js_error-popup">OK</button></a>
+      </p>
+    </div>
+  </div>  
+
+{% endif %}
+
+
+{% endblock %}  

@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+
+{% load static %} 
+
+
+{% block login %} 
+
+
+{% if error == "no" %}
+  
+<div class="popup popup--icon -success js_success-popup popup--visible">
+    <div class="popup__background"></div>
+    <div class="popup__content">
+      <h3 class="popup__content__title">
+        Success 
+      </h1>
+      <p>Login Successfully</p>
+      <p>
+        <a href="{% url 'admin_home' %}"><button class="button button--success" data-for="js_error-popup">OK</button></a>
+      </p>
+    </div>
+  </div>  
+
+{% endif %}
+
+{% if error == "yes" %}
+
+<div class="popup popup--icon -error js_error-popup popup--visible" >
+    <div class="popup__background"></div>
+    <div class="popup__content">
+      <h2 class="popup__content__title">
+        Error 
+      </h2>
+      <p><h5>Incorrect email/password combination</h5></p>
+      <p style="margin-top: 10px;">
+        <a href="{% url 'login_admin' %}"><button class="button button--error" data-for="js_error-popup">Close</button></a>
+      </p>
+    </div>
+</div>
+
+{% endif %}
+
+<section class="adminlog" id="adminlog">
+    
+    
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="image">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h1 class="heading mt-5" style="color: black; font-family: Algerian Regular;">Admin Login</h1>
+            <form method="post" style="height: 350px;">
+                {% csrf_token %}
+                <input type="text" placeholder="Enter Username" name="uname" class="box" 
+                    style="background-color : rgba(0, 0, 0, 0.592); font-family: Javanese Text Regular; margin-left:50px;margin-right: 50px;margin-top: 50px; border-radius:50px ;" required>
+                <input type="password" placeholder="Enter Password" name="pwd" class="box" 
+                    style="background-color : rgba(0, 0, 0, 0.592); font-family: Javanese Text Regular; margin-left:50px;margin-right: 50px; border-radius:50px ;" required>
+                
+                <input type="submit" class="btn" value="LOGIN" style="font-family:Stencil Regular; margin-left:50px;">
+                
+            </form>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
